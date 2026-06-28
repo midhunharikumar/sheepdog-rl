@@ -1,0 +1,6 @@
+numpy>=1.23
+gymnasium>=0.29
+# Optional, only needed for the extras noted in the README:
+#   pip install "stable-baselines3>=2.0" wandb   # train_sb3.py (+ W&B tracking)
+#   pip install pygame                            # render_mode="human"
+#   pip install imageio pillow                    # demo.py / rollouts_gif.py

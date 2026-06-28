@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sheepdog-env"
+version = "0.1.0"
+description = "A Gymnasium RL environment recreating the 'Shepherd's Dog' herding game (Strömbom flock dynamics, barking, a fenced pen with a single opening, and optional dusk wolves)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Midhun" }]
+keywords = [
+    "reinforcement-learning",
+    "gymnasium",
+    "multi-agent",
+    "flocking",
+    "shepherding",
+    "boids",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Intended Audience :: Science/Research",
+]
+dependencies = [
+    "numpy>=1.23",
+    "gymnasium>=0.29",
+]
+
+[project.optional-dependencies]
+# Live pygame window + GIF export for the demo/rollout scripts.
+render = ["pygame>=2.1", "imageio>=2.19", "pillow>=9.0"]
+# Reinforcement-learning training + Weights & Biases tracking
+# (examples/train_sb3.py).
+train = ["stable-baselines3>=2.0", "wandb>=0.16"]
+# Test suite.
+test = ["pytest>=7.0"]
+# Everything.
+all = [
+    "pygame>=2.1",
+    "imageio>=2.19",
+    "pillow>=9.0",
+    "stable-baselines3>=2.0",
+    "wandb>=0.16",
+    "pytest>=7.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/midhunharikumar/sheepdog-rl"
+"Repository" = "https://github.com/midhunharikumar/sheepdog-rl"
+"Original game" = "https://vnglst.github.io/when-ai-fails/shepards-dog/claude-fable-5/index.html"
+
+[tool.setuptools]
+packages = ["sheepdog_env"]
+
+[tool.setuptools.package-data]
+sheepdog_env = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
